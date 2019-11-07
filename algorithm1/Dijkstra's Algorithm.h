@@ -5,7 +5,7 @@
 class Dijkstra {
 private:
 	list<Node*> vpNodes;
-
 public:
-	Dijkstra(list<Node*> vpN, list<Edge*> vpE);
+	Dijkstra(list<Node*> vpN, int startPoint);
+	int getLowest(Node* node, list<Node*> vpN);
 };

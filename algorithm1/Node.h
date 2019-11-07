@@ -1,10 +1,11 @@
 #pragma once
 #include <iostream>
+#include <list>;
 using namespace std;
 class Node {
 private:
 	int m_node_id;
-	int m_distance = 0;
+	int m_distance = 99999999999999; // for highest number
 	bool m_known = false;
 public:
 	Node(int id);
