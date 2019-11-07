@@ -1,0 +1,12 @@
+﻿  algorithm1.cpp
+C:\Users\tomas\source\repos\algorithm1\algorithm1\algorithm1.cpp(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\tomas\source\repos\algorithm1\algorithm1\edge.H(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Dijkstra's Algorithm.cpp
+C:\Users\tomas\source\repos\algorithm1\algorithm1\Dijkstra's Algorithm.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\tomas\source\repos\algorithm1\algorithm1\edge.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Edge.cpp
+C:\Users\tomas\source\repos\algorithm1\algorithm1\Dijkstra's Algorithm.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Node.cpp
+  Generating Code...
+C:\Users\tomas\source\repos\algorithm1\algorithm1\edge.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  algorithm1.vcxproj -> C:\Users\tomas\source\repos\algorithm1\Debug\algorithm1.exe
