@@ -36,11 +36,11 @@ void Node::found() {
 
 void Node::printNode() {
 	cout << this->m_node_id << ", " << this->m_distance << endl;
-	std::list<int>::iterator it = this->connections.begin();
+	/*std::list<int>::iterator it = this->connections.begin();
 	int x = 0;
 	while (it != this->connections.end()) {
 		cout << *it << ", ";
 		it++;
-	}
+	}*/
 	cout << endl;
 }

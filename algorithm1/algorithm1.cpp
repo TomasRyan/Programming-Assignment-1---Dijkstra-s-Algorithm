@@ -18,6 +18,9 @@ int main()
 	int start;
 	list<Node*> vpN;
 	list<int> containter;
+	char endCheck[] = { "}" };
+	char gapCheck[] = { "," };
+	//char spaceCheck[] = { " " };
 	if (!is) {
 		cout << "Mistakes were made, closing program" << endl;
 		exit(1);
@@ -26,41 +29,73 @@ int main()
 		//cout << "we do it" << endl;
 		getline(is, inputType);
 		//cout << inputType << endl;
-		if (inputType == "S") {
-			
+		if (inputType == "S") { // todo
+			getline(is, inputType);
+			stringstream thing(inputType);
+			thing >> start;
+			int counter = 0;
+			while (getline(is, inputType) && counter < start) {
+				cout << inputType << endl;
+				inputType.erase(std::remove(inputType.begin(), inputType.end(), '{'), inputType.end());
+				inputType.erase(std::remove(inputType.begin(), inputType.end(), '}'), inputType.end());
+				//inputType.erase(std::remove(inputType.begin(), inputType.end(), ','), inputType.end());
+				containter.clear();
+				for (auto x : inputType) {
+					cout << x << endl;
+					cout << (int)x << endl;
+					containter.push_back((int)x - 48);
+				}
+				Node* n = new Node(counter, containter);
+				vpN.push_back(n);
+				counter++;
+			}
 		}
 		else if (inputType == "A") {
-
+			getline(is, inputType);
+			stringstream thing(inputType);
+			thing >> start;
+			int counter = 0;
+			while (getline(is, inputType) && counter < start) {
+				cout << inputType << endl;
+				inputType.erase(std::remove(inputType.begin(), inputType.end(), '{'), inputType.end());
+				//inputType.erase(std::remove(inputType.begin(), inputType.end(), '}'), inputType.end());
+				inputType.erase(std::remove(inputType.begin(), inputType.end(), ' '), inputType.end());
+				//inputType.erase(std::remove(inputType.begin(), inputType.end(), ','), inputType.end());
+				containter.clear();
+				int i = 0;
+				for (auto x : inputType) {
+					//cout << x << endl;
+					//cout << (int)x << endl;
+					if (isdigit(x)) {
+						if (x != endCheck[0] && x != gapCheck[0]) {
+							i += (int)x - 48;
+							//cout << i << endl;
+						}
+					}
+					else if (x == gapCheck[0]) {
+						containter.push_back(i);
+						//cout << i << endl;
+						i = 0;
+					}
+					else if (x == endCheck[0]) {
+						containter.push_back(i);
+						//cout << i << endl;
+						i = 0;
+					}
+				}
+				Node* n = new Node(counter, containter);
+				vpN.push_back(n);
+				counter++;
+			}
 		}
 		else {
 			cout << "Mistakes were made, closing program" << endl;
 			exit(1);
 		}
-		getline(is, inputType);
-		stringstream thing(inputType);
-		thing >> start;
-		//cout << start << endl;
-		int counter = 0;
-		while (getline(is, inputType) && counter < start) {
-			cout << inputType << endl;
-			inputType.erase(std::remove(inputType.begin(), inputType.end(), '{'), inputType.end());
-			inputType.erase(std::remove(inputType.begin(), inputType.end(), '}'), inputType.end());
-			inputType.erase(std::remove(inputType.begin(), inputType.end(), ','), inputType.end());
-			containter.clear();
-			for (auto x : inputType) {
-				cout << x << endl;
-				cout << (int)x << endl;
-				containter.push_back((int)x-48);
-			}
-			Node* n = new Node(counter, containter);
-			//n->printNode();
-			vpN.push_back(n);
-			counter++;
-			
-		}
+		/*for (Node* n : vpN) {
+			(*n).printNode();
+		}*/
 		is.close();
-		cout << "OGUOUG" << endl;
-		//int temp[] = ;
 	}
 	//int start = 0;
 	//int graph[length][length]{
