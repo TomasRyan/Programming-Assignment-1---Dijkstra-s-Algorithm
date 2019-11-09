@@ -1,6 +1,5 @@
-﻿  Dijkstra's Algorithm.cpp
+﻿  algorithm1.cpp
 C:\Users\tomas\source\repos\algorithm1\al\algorithm1\Node.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\tomas\source\repos\algorithm1\al\algorithm1\edge.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\tomas\source\repos\algorithm1\al\algorithm1\Dijkstra's Algorithm.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\tomas\source\repos\algorithm1\al\algorithm1\Dijkstra's Algorithm.cpp(5,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   algorithm1.vcxproj -> C:\Users\tomas\source\repos\algorithm1\al\x64\Debug\algorithm1.exe

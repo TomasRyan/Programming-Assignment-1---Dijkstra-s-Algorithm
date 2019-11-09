@@ -8,9 +8,9 @@ private:
 	int m_node_id;
 	int m_distance = INT_MAX; // for highest number
 	bool m_known = false;
-	int connections[length];
+	list<int> connections;
 public:
-	Node(int id, int c[length]);
+	Node(int id, list<int> con);
 	int getNodeID();
 	int getDistance();
 	void setDistance(int d);

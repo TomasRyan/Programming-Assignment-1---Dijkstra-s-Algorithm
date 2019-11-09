@@ -1,9 +1,7 @@
 #include "Node.h"
-Node::Node(int id, int l[length]) {
+Node::Node(int id, list<int> con) {
 	this->m_node_id = id;
-	for (int x = 0; x < length; x++) {
-		this->connections[x] = l[x];
-	}
+	this->connections = con;
 }
 
 int Node::getNodeID() {
@@ -15,7 +13,13 @@ int Node::getDistance() {
 }
 
 int Node::getDistanceToPoint(int i) {
-	return this->connections[i];
+	std::list<int>::iterator it = connections.begin();
+	int x = 0;
+	while ( x < i) {
+		x++;
+		it++;
+	}
+	return *it;
 }
 
 void Node::setDistance(int d) {
@@ -32,9 +36,11 @@ void Node::found() {
 
 void Node::printNode() {
 	cout << this->m_node_id << ", " << this->m_distance << endl;
-	/*cout << "{" <<this->connections[0] << " , ";
-	for (int i = 1; i < length-1; i++) {
-		cout << this->connections[i] << " , ";
+	std::list<int>::iterator it = this->connections.begin();
+	int x = 0;
+	while (it != this->connections.end()) {
+		cout << *it << ", ";
+		it++;
 	}
-	cout << this->connections[length - 1] << "}" << endl;*/
+	cout << endl;
 }
