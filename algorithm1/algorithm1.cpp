@@ -114,8 +114,8 @@ int main()
 					//cout << (int)x << endl;
 					if (isdigit(x)) {
 						if (x != endCheck[0] && x != gapCheck[0]) {
+							i *= 10;
 							i += (int)x - 48;
-							//cout << i << endl;
 						}
 					}
 					else if (x == gapCheck[0]) {
