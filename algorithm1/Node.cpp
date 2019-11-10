@@ -44,3 +44,13 @@ void Node::printNode() {
 	}*/
 	cout << endl;
 }
+
+void Node::setConnection(int index, int newValue) {
+	list<int>::iterator iter = this->connections.begin();
+	int x = 0;
+	while (x < index) {
+		iter++;
+		x++;
+	}
+	*iter = newValue;
+}

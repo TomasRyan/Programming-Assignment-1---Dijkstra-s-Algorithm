@@ -20,33 +20,79 @@ int main()
 	list<int> containter;
 	char endCheck[] = { "}" };
 	char gapCheck[] = { "," };
-	//char spaceCheck[] = { " " };
+	char spaceCheck[] = { " " };
 	if (!is) {
 		cout << "Mistakes were made, closing program" << endl;
 		exit(1);
 	}
 	if (is.is_open()) {
-		//cout << "we do it" << endl;
+		// first line
 		getline(is, inputType);
 		//cout << inputType << endl;
 		if (inputType == "S") { // todo
+			// secound line
 			getline(is, inputType);
 			stringstream thing(inputType);
 			thing >> start;
 			int counter = 0;
+			for (int a = 0; a < start; a++) {
+				containter.clear();
+
+				for (int b = 0; b < start; b++) {
+					containter.push_back(0);
+				}
+				Node* n = new Node(a, containter);
+				vpN.push_back(n);
+			}
 			while (getline(is, inputType) && counter < start) {
-				cout << inputType << endl;
 				inputType.erase(std::remove(inputType.begin(), inputType.end(), '{'), inputType.end());
 				inputType.erase(std::remove(inputType.begin(), inputType.end(), '}'), inputType.end());
 				//inputType.erase(std::remove(inputType.begin(), inputType.end(), ','), inputType.end());
 				containter.clear();
+				int i = 0;
+				int first = 0;
+				int destination = 0;
+				int weight = 0;
+				int step = 0;
 				for (auto x : inputType) {
 					cout << x << endl;
-					cout << (int)x << endl;
-					containter.push_back((int)x - 48);
+					if (isdigit(x)) {
+						i *= 10;
+						i += (int)x - 48;
+					}
+					else if (x == gapCheck[0] || x == endCheck[0]) {
+						if (step == 0) {
+							first = i;
+						}
+						else if (step == 1) {
+							destination = i;
+						}
+						step++;
+						i = 0;
+					}
 				}
-				Node* n = new Node(counter, containter);
-				vpN.push_back(n);
+				if (step == 2) {
+					weight = i;
+					int c = 0;
+					for (Node* n : vpN) {
+						if (c == destination) {
+							n->setConnection(first, weight);
+						}
+						c++;
+					}
+					c = 0;
+					for (Node* n : vpN) {
+						if (c == first) {
+							n->setConnection(destination, weight);
+							i = 0;
+							first = 0;
+							destination = 0;
+							weight = 0;
+							step = 0;
+						}
+						c++;
+					}
+				}
 				counter++;
 			}
 		}
@@ -77,7 +123,7 @@ int main()
 						//cout << i << endl;
 						i = 0;
 					}
-					else if (x == endCheck[0]) {
+					else if (x == spaceCheck[0]) {
 						containter.push_back(i);
 						//cout << i << endl;
 						i = 0;

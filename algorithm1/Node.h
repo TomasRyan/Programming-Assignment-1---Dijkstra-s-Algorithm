@@ -18,6 +18,7 @@ public:
 	void found();
 	void printNode();
 	int getDistanceToPoint(int i);
+	void setConnection(int index, int newValue);
 	bool operator==(const Node a) const
 	{
 		if (this->m_node_id == a.m_node_id) {
