@@ -1,5 +1,12 @@
-// algorithm1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+///////////////////////////////////////////////////////////
+//	Tomás Ryan	
+//	k00243524
+//	Dijkstra's Algorithm
+///////////////////////////////////////////////////////////
+//	The main function
+//	accepts in a char of the name of the file to be used
+//	for the algorithm
+///////////////////////////////////////////////////////////
 
 #include "Node.h"
 #include <list>
@@ -9,10 +16,12 @@
 #include <sstream>
 
 #include <algorithm>
-int main()
-{
+#include <vector>
+int main(int argc, char* argv[])
+{	//	accept the name of the file
+	cout << argv[1] << endl;
+	string fileName = argv[1];
 	ifstream is;
-	string fileName = "graph.txt";
 	is.open(fileName);
 	string inputType;
 	int start;
@@ -21,20 +30,25 @@ int main()
 	char endCheck[] = { "}" };
 	char gapCheck[] = { "," };
 	char spaceCheck[] = { " " };
+	string s = "S";
+	string a = "A";
+	//	if there is a error loading the file this will be called
 	if (!is) {
 		cout << "Mistakes were made, closing program" << endl;
 		exit(1);
 	}
+	//	else run teh algorithm
 	if (is.is_open()) {
-		// first line
+		// getLIne will place teh next line of the entered text file into inputtype
 		getline(is, inputType);
-		//cout << inputType << endl;
-		if (inputType == "S") { // todo
+		if (inputType == s) { // for arc 
 			// secound line
+			//	get the count of nodes
 			getline(is, inputType);
 			stringstream thing(inputType);
-			thing >> start;
+			thing >> start; 
 			int counter = 0;
+			// create all the nodes we need, so in this case we make a start*start amount of nodes
 			for (int a = 0; a < start; a++) {
 				containter.clear();
 
@@ -44,10 +58,11 @@ int main()
 				Node* n = new Node(a, containter);
 				vpN.push_back(n);
 			}
+			//	while there is a next line to read from and hasnt repeated more than the amount of nodes within the 
 			while (getline(is, inputType) && counter < start) {
+				// remove
 				inputType.erase(std::remove(inputType.begin(), inputType.end(), '{'), inputType.end());
 				inputType.erase(std::remove(inputType.begin(), inputType.end(), '}'), inputType.end());
-				//inputType.erase(std::remove(inputType.begin(), inputType.end(), ','), inputType.end());
 				containter.clear();
 				int i = 0;
 				int first = 0;
@@ -55,7 +70,6 @@ int main()
 				int weight = 0;
 				int step = 0;
 				for (auto x : inputType) {
-					cout << x << endl;
 					if (isdigit(x)) {
 						i *= 10;
 						i += (int)x - 48;
@@ -96,22 +110,17 @@ int main()
 				counter++;
 			}
 		}
-		else if (inputType == "A") {
+		else if (inputType == a) {
 			getline(is, inputType);
 			stringstream thing(inputType);
 			thing >> start;
 			int counter = 0;
 			while (getline(is, inputType) && counter < start) {
-				cout << inputType << endl;
 				inputType.erase(std::remove(inputType.begin(), inputType.end(), '{'), inputType.end());
-				//inputType.erase(std::remove(inputType.begin(), inputType.end(), '}'), inputType.end());
 				inputType.erase(std::remove(inputType.begin(), inputType.end(), ' '), inputType.end());
-				//inputType.erase(std::remove(inputType.begin(), inputType.end(), ','), inputType.end());
 				containter.clear();
 				int i = 0;
 				for (auto x : inputType) {
-					//cout << x << endl;
-					//cout << (int)x << endl;
 					if (isdigit(x)) {
 						if (x != endCheck[0] && x != gapCheck[0]) {
 							i *= 10;
@@ -120,12 +129,10 @@ int main()
 					}
 					else if (x == gapCheck[0]) {
 						containter.push_back(i);
-						//cout << i << endl;
 						i = 0;
 					}
 					else if (x == spaceCheck[0]) {
 						containter.push_back(i);
-						//cout << i << endl;
 						i = 0;
 					}
 				}
@@ -138,9 +145,6 @@ int main()
 			cout << "Mistakes were made, closing program" << endl;
 			exit(1);
 		}
-		/*for (Node* n : vpN) {
-			(*n).printNode();
-		}*/
 		is.close();
 	}
 	//int start = 0;
@@ -156,17 +160,13 @@ int main()
 	//{0,0,0,0,0,0,8,0,0,3,0} , //i
 	//{3,0,0,0,0,0,0,0,3,0,2} , //j
 	//{0,0,0,0,0,0,0,0,0,2,0} };//k
-	//list<Node*> vpN;
-	//list<int> t;
-	//for (int i = 0; i < length; i++) {
-	//	t = graph[i].;
-	//	Node* n = new Node(i, t);
-	//	list<Node*> vpN.push_back(n);
-	//}
 	
 	Dijkstra d(vpN, 0);
+	cout << "////////////////////////" << endl;
 	for (Node* n : vpN) {
 		(*n).printNode();
+		cout << "**************************" << endl;
 	}
+	cout << "////////////////////////" << endl;
 	system("Pause");
 }

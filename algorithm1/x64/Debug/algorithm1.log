@@ -1,5 +1,15 @@
-﻿  algorithm1.cpp
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(452,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (algorithm1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  algorithm1.cpp
+C:\Users\tomas\source\repos\algorithm1\al\algorithm1\Node.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\tomas\source\repos\algorithm1\al\algorithm1\edge.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Dijkstra's Algorithm.cpp
+C:\Users\tomas\source\repos\algorithm1\al\algorithm1\Dijkstra's Algorithm.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\tomas\source\repos\algorithm1\al\algorithm1\Node.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\tomas\source\repos\algorithm1\al\algorithm1\edge.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\tomas\source\repos\algorithm1\al\algorithm1\Dijkstra's Algorithm.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  algorithm1.vcxproj -> C:\Users\tomas\source\repos\algorithm1\al\x64\Debug\algorithm1.exe
+  Node.cpp
+C:\Users\tomas\source\repos\algorithm1\al\algorithm1\Dijkstra's Algorithm.cpp(5,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Result.cpp
+  Generating Code...
+C:\Users\tomas\source\repos\algorithm1\al\algorithm1\Node.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  algorithm1.vcxproj -> C:\Users\tomas\source\repos\algorithm1\al\x64\Debug\Dijkstra.exe

@@ -1,0 +1,16 @@
+﻿  algorithm1.cpp
+C:\Users\tomas\source\repos\algorithm1\al\algorithm1\Node.h(12,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\tomas\source\repos\algorithm1\al\algorithm1\edge.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Dijkstra's Algorithm.cpp
+C:\Users\tomas\source\repos\algorithm1\al\algorithm1\Dijkstra's Algorithm.h(13,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\tomas\source\repos\algorithm1\al\algorithm1\Node.h(12,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\tomas\source\repos\algorithm1\al\algorithm1\edge.h(5,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\tomas\source\repos\algorithm1\al\algorithm1\Dijkstra's Algorithm.h(13,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Node.cpp
+C:\Users\tomas\source\repos\algorithm1\al\algorithm1\Dijkstra's Algorithm.cpp(14,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\tomas\source\repos\algorithm1\al\algorithm1\Node.h(12,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 406 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  algorithm1.vcxproj -> C:\Users\tomas\source\repos\algorithm1\al\x64\Release\Dijkstra.exe

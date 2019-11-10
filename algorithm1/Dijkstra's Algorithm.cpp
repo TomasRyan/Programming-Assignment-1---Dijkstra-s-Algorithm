@@ -1,50 +1,54 @@
+///////////////////////////////////////////////////////////
+//	Tomás Ryan	
+//	k00243524
+//	Dijkstra's Algorithm
+///////////////////////////////////////////////////////////
+//	The Dijkstra's Algorithm
+//	accepts in a list of nodes and iterates though it finding the
+//	lowest weight for each path and assigning it
+///////////////////////////////////////////////////////////
 #include "Dijkstra's Algorithm.h"
 #include <limits.h> 
 Dijkstra::Dijkstra(list<Node*> vpN, int startPoint) {
 
 	int count = vpN.size();
-	int distance = 0;
-	list<Node*>::iterator it = vpN.begin();
+	list<Node*>::iterator itX = vpN.begin();
+	list<Node*>::iterator itY = vpN.begin();
 	int counter = 0;
 	while (counter < startPoint) {
-		it++;
+		itX++;
 		counter++;
 	}
-	(*it)->setDistance(0);
+	(*itX)->setDistance(0);
 	counter = 0;
 	///////
 	for (Node* n: vpN) {
 		int closestIndex = getLowest(vpN, counter);
-		it = vpN.begin();
-		//counter = 0;
+		itX = vpN.begin();
 		int y = 0;
 		while (y < closestIndex) {
-			it++;
+			itX++;
 			y++;
 		}
-		(*it)->found();
-		//it = vpN.begin();
-		distance = n->getDistance();
-		list<Node*>::iterator iIter = vpN.begin();
+		(*itX)->found();
+		itY = vpN.begin();
 		for (int i = 0; i < length; i++) {
-			if ((*iIter)->isFound() != true
-					&& (*it)->getDistance() != INT_MAX
-					&& (*it)->getDistanceToPoint(i) != 0
-					&& (*iIter)->getDistance() != 0
-					&& (*it)->getDistance() + (*iIter)->getDistanceToPoint(closestIndex) < (*iIter)->getDistance()) {
+			if ((*itY)->isFound() != true
+					&& (*itX)->getDistance() != INT_MAX
+					&& (*itX)->getDistanceToPoint(i) != 0
+					&& (*itY)->getDistance() != 0
+					&& (*itX)->getDistance() + (*itY)->getDistanceToPoint(closestIndex) < (*itY)->getDistance()) {
 				//
-				(*iIter)->setDistance((*it)->getDistance() + (*it)->getDistanceToPoint(i));
-				cout << "iteration: " << counter << endl;
-				cout << n->getDistance() << endl;
+				cout << "////////////////////////" << endl;
+				(*itY)->setDistance((*itX)->getDistance() + (*itX)->getDistanceToPoint(i));
+				(*itY)->SetPrevious((*itX)->getNodeID());
+				(*itY)->printNode();
+				cout << "////////////////////////" << endl;
 			}
-			iIter++;
+			itY++;
 		}
 		counter++;
 	}
-	/*(*it)->setDistance(0);
-	(*it)->found();
-	(*it)->printNode();
-	(*it)->setDistance(distance);*/
 }
 
 int Dijkstra::getLowest(list<Node*> vpN, int counter) {

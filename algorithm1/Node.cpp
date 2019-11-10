@@ -1,7 +1,16 @@
+///////////////////////////////////////////////////////////
+//	Tomás Ryan	
+//	k00243524
+//	Dijkstra's Algorithm
+///////////////////////////////////////////////////////////
+//	The node object
+//	contains each value needed to perform Dijkstra’s Algorithm
+//	aswell as retaining the results.
+///////////////////////////////////////////////////////////
 #include "Node.h"
 Node::Node(int id, list<int> con) {
 	this->m_node_id = id;
-	this->connections = con;
+	this->m_connections = con;
 }
 
 int Node::getNodeID() {
@@ -13,7 +22,7 @@ int Node::getDistance() {
 }
 
 int Node::getDistanceToPoint(int i) {
-	std::list<int>::iterator it = connections.begin();
+	std::list<int>::iterator it = m_connections.begin();
 	int x = 0;
 	while ( x < i) {
 		x++;
@@ -35,22 +44,32 @@ void Node::found() {
 }
 
 void Node::printNode() {
-	cout << this->m_node_id << ", " << this->m_distance << endl;
-	/*std::list<int>::iterator it = this->connections.begin();
+	cout << "Node ID: " << this->m_node_id << endl;
+	cout << "Distance from origin: " << this->m_distance << endl;
+	std::list<int>::iterator it = m_connections.begin();
 	int x = 0;
-	while (it != this->connections.end()) {
-		cout << *it << ", ";
+	cout << "(";
+	cout << *it;
+	it++;
+	while (it != this->m_connections.end()) {
+		cout << ", " << *it;
+		x++;
 		it++;
-	}*/
-	cout << endl;
+	}
+	cout << ")" << endl;
+	cout << "Previous Node: " << this->m_previous << endl;
 }
 
 void Node::setConnection(int index, int newValue) {
-	list<int>::iterator iter = this->connections.begin();
+	list<int>::iterator iter = this->m_connections.begin();
 	int x = 0;
 	while (x < index) {
 		iter++;
 		x++;
 	}
 	*iter = newValue;
+}
+
+void Node::SetPrevious(int index) {
+	this->m_previous = index;
 }
